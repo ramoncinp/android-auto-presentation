@@ -2,6 +2,6 @@
 <resources>
 
     <style name="Theme.AndroidAutoPresentation" parent="android:Theme.Material.Light.NoActionBar">
-        <item name="android:statusBarColor">@color/primaryColor</item>
+        <item name="android:statusBarColor">@color/secondaryColor</item>
     </style>
 </resources>
