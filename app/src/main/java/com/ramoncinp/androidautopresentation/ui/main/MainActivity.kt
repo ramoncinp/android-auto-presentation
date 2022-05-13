@@ -20,6 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.ramoncinp.androidautopresentation.R
+import com.ramoncinp.androidautopresentation.ui.name.InputNamePage
 import com.ramoncinp.androidautopresentation.ui.theme.AndroidAutoPresentationTheme
 
 class MainActivity : ComponentActivity() {
@@ -49,7 +50,7 @@ fun SetUiColors() {
 @Composable
 fun MyApp() {
     SetUiColors()
-    MainContent()
+    InputNamePage()
 }
 
 @Composable
