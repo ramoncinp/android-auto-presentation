@@ -1,9 +1,9 @@
 package com.ramoncinp.androidautopresentation.domain.usecases
 
-import com.ramoncinp.androidautopresentation.data.DeviceIdManager
+import com.ramoncinp.androidautopresentation.data.repository.DeviceIdManager
 import javax.inject.Inject
 
-class GenerateDeviceIdUseCase @Inject constructor(
+class GetDeviceIdUseCase @Inject constructor(
     private val deviceIdManager: DeviceIdManager
 ) {
 

@@ -3,7 +3,7 @@ package com.ramoncinp.androidautopresentation.ui.name
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.ramoncinp.androidautopresentation.EMPTY_STRING
-import com.ramoncinp.androidautopresentation.data.SessionManager
+import com.ramoncinp.androidautopresentation.data.repository.SessionManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

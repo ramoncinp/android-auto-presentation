@@ -33,9 +33,8 @@
         android:label="fragment_input_name"
         tools:layout="@layout/fragment_input_name" >
         <action
-            android:id="@+id/action_inputNameFragment_to_checkFragment"
-            app:destination="@id/checkFragment"
-            app:launchSingleTop="false"
+            android:id="@+id/action_inputNameFragment_to_loadingFragment"
+            app:destination="@id/loadingFragment"
             app:popUpTo="@id/inputNameFragment"
             app:popUpToInclusive="true" />
     </fragment>

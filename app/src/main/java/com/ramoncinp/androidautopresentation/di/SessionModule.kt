@@ -1,9 +1,9 @@
 package com.ramoncinp.androidautopresentation.di
 
-import com.ramoncinp.androidautopresentation.data.DeviceIdManager
-import com.ramoncinp.androidautopresentation.data.DeviceIdManagerImpl
-import com.ramoncinp.androidautopresentation.data.SessionManager
-import com.ramoncinp.androidautopresentation.data.SessionManagerImpl
+import com.ramoncinp.androidautopresentation.data.repository.DeviceIdManager
+import com.ramoncinp.androidautopresentation.data.repository.DeviceIdManagerImpl
+import com.ramoncinp.androidautopresentation.data.repository.SessionManager
+import com.ramoncinp.androidautopresentation.data.repository.SessionManagerImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

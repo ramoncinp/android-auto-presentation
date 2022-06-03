@@ -48,13 +48,13 @@ class InputNameFragment : Fragment() {
         }
 
         viewModel.inputNameReady.observe(viewLifecycleOwner) { navigate ->
-            if (navigate) navigateToCheckFragment()
+            if (navigate) onInputNameReady()
         }
     }
 
-    private fun navigateToCheckFragment() {
+    private fun onInputNameReady() {
         findNavController().navigate(
-            InputNameFragmentDirections.actionInputNameFragmentToCheckFragment()
+            InputNameFragmentDirections.actionInputNameFragmentToLoadingFragment()
         )
     }
 

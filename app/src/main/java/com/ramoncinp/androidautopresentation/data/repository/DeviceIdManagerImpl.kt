@@ -1,4 +1,4 @@
-package com.ramoncinp.androidautopresentation.data
+package com.ramoncinp.androidautopresentation.data.repository
 
 import android.content.SharedPreferences
 import com.ramoncinp.androidautopresentation.EMPTY_STRING

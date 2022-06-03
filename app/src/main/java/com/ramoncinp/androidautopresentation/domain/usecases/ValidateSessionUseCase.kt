@@ -3,9 +3,13 @@ package com.ramoncinp.androidautopresentation.domain.usecases
 import com.ramoncinp.androidautopresentation.data.repository.SessionManager
 import javax.inject.Inject
 
-class CheckUserNameUseCase @Inject constructor(
+class ValidateSessionUseCase @Inject constructor(
     private val sessionManager: SessionManager
 ) {
 
-    operator fun invoke() = sessionManager.getUserName()
+    suspend operator fun invoke() {
+        if (sessionManager.isSignedIn().not()) {
+            sessionManager.signIn()
+        }
+    }
 }

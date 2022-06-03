@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.ramoncinp.androidautopresentation.EMPTY_STRING
 import com.ramoncinp.androidautopresentation.domain.states.MainAppState
 import com.ramoncinp.androidautopresentation.domain.usecases.CheckUserNameUseCase
+import com.ramoncinp.androidautopresentation.domain.usecases.ValidateSessionUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -16,7 +17,8 @@ private const val LOADING_DELAY = 1000L
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val checkUserNameUseCase: CheckUserNameUseCase
+    private val checkUserNameUseCase: CheckUserNameUseCase,
+    private val validateSessionUseCase: ValidateSessionUseCase
 ) : ViewModel() {
 
     private val _mainAppState = MutableLiveData<MainAppState>()
@@ -31,8 +33,13 @@ class MainViewModel @Inject constructor(
             delay(LOADING_DELAY)
 
             val state = when (checkUserNameUseCase()) {
-                EMPTY_STRING -> MainAppState.NoName
-                else -> MainAppState.HasName
+                EMPTY_STRING -> {
+                    MainAppState.NoName
+                }
+                else -> {
+                    validateSessionUseCase()
+                    MainAppState.HasName
+                }
             }
 
             _mainAppState.postValue(state)
