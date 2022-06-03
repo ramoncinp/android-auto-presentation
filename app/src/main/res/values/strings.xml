@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">AndroidAutoPresentation</string>
     <string name="name">Name</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="check_in">Check In</string>
+    <string name="submit">Submit</string>
 </resources>
