@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.ramoncinp.androidautopresentation.R
 import com.ramoncinp.androidautopresentation.databinding.FragmentCheckBinding
-import com.ramoncinp.androidautopresentation.domain.states.CheckInState
+import com.ramoncinp.androidautopresentation.domain.states.CheckActionState
 import com.ramoncinp.androidautopresentation.domain.states.CheckState
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -56,9 +56,9 @@ class CheckFragment : Fragment() {
 
         viewModel.checkInState.observe(viewLifecycleOwner) {
             when (it) {
-                is CheckInState.Loading -> onLoading()
-                is CheckInState.Success -> onCheckSuccess()
-                is CheckInState.Error -> onCheckError(it.message)
+                is CheckActionState.Loading -> onLoading()
+                is CheckActionState.Success -> onCheckSuccess()
+                is CheckActionState.Error -> onCheckError(it.message)
             }
         }
     }

@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ramoncinp.androidautopresentation.EMPTY_STRING
+import com.ramoncinp.androidautopresentation.core.DispatcherProvider
 import com.ramoncinp.androidautopresentation.domain.states.MainAppState
 import com.ramoncinp.androidautopresentation.domain.usecases.CheckUserNameUseCase
 import com.ramoncinp.androidautopresentation.domain.usecases.ValidateSessionUseCase
@@ -18,7 +19,8 @@ private const val LOADING_DELAY = 1000L
 @HiltViewModel
 class MainViewModel @Inject constructor(
     private val checkUserNameUseCase: CheckUserNameUseCase,
-    private val validateSessionUseCase: ValidateSessionUseCase
+    private val validateSessionUseCase: ValidateSessionUseCase,
+    private val dispatcherProvider: DispatcherProvider
 ) : ViewModel() {
 
     private val _mainAppState = MutableLiveData<MainAppState>()
@@ -29,7 +31,7 @@ class MainViewModel @Inject constructor(
     }
 
     private fun getUserName() {
-        viewModelScope.launch {
+        viewModelScope.launch(dispatcherProvider.io) {
             delay(LOADING_DELAY)
 
             val state = when (checkUserNameUseCase()) {

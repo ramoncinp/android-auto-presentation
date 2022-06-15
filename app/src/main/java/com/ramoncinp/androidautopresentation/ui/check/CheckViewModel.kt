@@ -3,9 +3,11 @@ package com.ramoncinp.androidautopresentation.ui.check
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.ramoncinp.androidautopresentation.data.models.RegistrationTypes
 import com.ramoncinp.androidautopresentation.data.repository.SessionManager
-import com.ramoncinp.androidautopresentation.domain.states.CheckInState
+import com.ramoncinp.androidautopresentation.domain.states.CheckActionState
 import com.ramoncinp.androidautopresentation.domain.states.CheckState
+import com.ramoncinp.androidautopresentation.domain.toCheckState
 import com.ramoncinp.androidautopresentation.domain.usecases.CheckInUseCase
 import com.ramoncinp.androidautopresentation.domain.usecases.CheckOutUseCase
 import com.ramoncinp.androidautopresentation.domain.usecases.GetRegistrationEventUseCase
@@ -28,7 +30,7 @@ class CheckViewModel @Inject constructor(
     private val _checkState = MutableLiveData<CheckState>(CheckState.Loading)
     val checkState = _checkState
 
-    private val _checkInState = MutableLiveData<CheckInState>()
+    private val _checkInState = MutableLiveData<CheckActionState>()
     val checkInState = _checkInState
 
     init {
@@ -43,12 +45,7 @@ class CheckViewModel @Inject constructor(
 
     fun getCheckState() {
         viewModelScope.launch {
-            val registrationEvent = getRegistrationEventUseCase()
-            if (registrationEvent == null) {
-                _checkState.value = CheckState.CheckedOut
-            } else {
-                _checkState.value = CheckState.CheckedIn
-            }
+            _checkState.value = getRegistrationEventUseCase().toCheckState()
         }
     }
 
@@ -59,7 +56,7 @@ class CheckViewModel @Inject constructor(
             val flow = if (currentState is CheckState.CheckedIn) {
                 checkOutUseCase()
             } else {
-                checkInUseCase()
+                checkInUseCase(RegistrationTypes.MOBILE_REGISTRATION)
             }
 
             flow.collectLatest {
