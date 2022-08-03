@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "999484639898",
+    "project_id": "androidautopresentation",
+    "storage_bucket": "androidautopresentation.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:999484639898:android:89cbe9653087626b2cad23",
+        "android_client_info": {
+          "package_name": "com.ramoncinp.androidautopresentation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "999484639898-rd271ruflf3br4vauumqvdmh4gjh3eqh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtSk0PW-_figxCjWmh5nUQOc0mg98EOFY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "999484639898-rd271ruflf3br4vauumqvdmh4gjh3eqh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
